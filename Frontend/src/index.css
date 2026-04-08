@@ -37,7 +37,7 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--bg-primary);
 }
 
-@media (max-width: var(--app-max-width)) {
+@media (max-width: 375px) {
   .app-shell {
     max-width: 100%;
     @apply shadow-none;
