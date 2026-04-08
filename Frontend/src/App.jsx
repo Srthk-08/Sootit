@@ -12,13 +12,17 @@ import UserBottomNav from './shared/components/BottomNav'; // Renamed
 const UserHome = lazy(() => import('./modules/user/pages/UserHome'));
 const UserLogin = lazy(() => import('./modules/user/pages/UserLogin'));
 const UserRegister = lazy(() => import('./modules/user/pages/UserRegister'));
+const AuthLanding = lazy(() => import('./modules/auth/pages/AuthLanding'));
 const UserProfile = lazy(() => import('./modules/user/pages/UserProfile'));
 const UserFind = lazy(() => import('./modules/user/pages/UserFind'));
 const UserSearch = lazy(() => import('./modules/user/pages/UserSearch'));
 const UserOrders = lazy(() => import('./modules/user/pages/UserOrders'));
+const UserOrderDetail = lazy(() => import('./modules/user/pages/UserOrderDetail'));
+const UserSupport = lazy(() => import('./modules/user/pages/UserSupport'));
 const UserReviews = lazy(() => import('./modules/user/pages/UserReviews'));
 const UserPreferences = lazy(() => import('./modules/user/pages/UserPreferences'));
 const UserHistory = lazy(() => import('./modules/user/pages/UserHistory'));
+const UserBookingSuccess = lazy(() => import('./modules/user/pages/UserBookingSuccess'));
 const CategoryDetails = lazy(() => import('./modules/user/pages/CategoryDetails'));
 const VendorHome = lazy(() => import('./modules/vendor/pages/VendorHome'));
 const VendorLogin = lazy(() => import('./modules/vendor/pages/VendorLogin'));
@@ -38,7 +42,7 @@ const ModuleWrapper = ({ children, type }) => (
     animate={{ opacity: 1, x: 0 }}
     exit={{ opacity: 0, x: 50 }}
     transition={{ duration: 0.4, ease: "easeOut" }}
-    className="flex-1 min-h-screen pb-24" // Extra padding for bottom navigation
+    className="flex-1 min-h-screen" 
   >
     {children}
   </motion.div>
@@ -49,12 +53,14 @@ const AppRoutes = () => {
 
   return (
     <Suspense fallback={<div className="h-screen w-full flex items-center justify-center bg-white">
-      <div className="h-8 w-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
+      <div className="h-8 w-8 border-4 border-slate-900 border-t-transparent rounded-full animate-spin" />
     </div>}>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
+          {/* Main Auth Gateway */}
+          <Route path="/" element={<AuthLanding />} />
+
           {/* User App Module */}
-          <Route path="/" element={<Navigate to="/user/login" replace />} />
           <Route path="/user" element={<ModuleWrapper type="user"><UserHome /></ModuleWrapper>} />
           <Route path="/user/login" element={<ModuleWrapper type="user"><UserLogin /></ModuleWrapper>} />
           <Route path="/user/register" element={<ModuleWrapper type="user"><UserRegister /></ModuleWrapper>} />
@@ -62,10 +68,13 @@ const AppRoutes = () => {
           <Route path="/user/find" element={<ModuleWrapper type="user"><UserFind /></ModuleWrapper>} />
           <Route path="/user/search" element={<ModuleWrapper type="user"><UserSearch /></ModuleWrapper>} />
           <Route path="/user/orders" element={<ModuleWrapper type="user"><UserOrders /></ModuleWrapper>} />
+          <Route path="/user/order/:id" element={<ModuleWrapper type="user"><UserOrderDetail /></ModuleWrapper>} />
+          <Route path="/user/support" element={<ModuleWrapper type="user"><UserSupport /></ModuleWrapper>} />
           <Route path="/user/reviews" element={<ModuleWrapper type="user"><UserReviews /></ModuleWrapper>} />
           <Route path="/user/preferences" element={<ModuleWrapper type="user"><UserPreferences /></ModuleWrapper>} />
           <Route path="/user/history" element={<ModuleWrapper type="user"><UserHistory /></ModuleWrapper>} />
           <Route path="/user/category/:category" element={<ModuleWrapper type="user"><CategoryDetails /></ModuleWrapper>} />
+          <Route path="/user/booking-success" element={<ModuleWrapper type="user"><UserBookingSuccess /></ModuleWrapper>} />
           
           {/* Vendor App Module (Drivers, Mechanics, RTO, Legal, Towing) */}
           <Route path="/vendor" element={<ModuleWrapper type="vendor"><VendorHome /></ModuleWrapper>} />
@@ -86,6 +95,20 @@ const AppRoutes = () => {
         </Routes>
       </AnimatePresence>
     </Suspense>
+  );
+};
+
+const AppContent = () => {
+  const location = useLocation();
+  const authPaths = ['/', '/user/login', '/user/register', '/vendor/login', '/vendor/register'];
+  const isAuthPage = authPaths.includes(location.pathname);
+
+  return (
+    <div className={`app-shell border-x border-black/5 ring-1 ring-black/[0.02] ${!isAuthPage ? 'pb-20' : ''}`}>
+      {!isAuthPage && <AppHeader />}
+      <AppRoutes />
+      {!isAuthPage && <UserBottomNav />}
+    </div>
   );
 };
 
@@ -115,18 +138,12 @@ function App() {
 
   return (
     <Router>
-      <div className="relative min-h-screen bg-slate-200/50 font-sans selection:bg-blue-600/30 selection:text-white antialiased">
+      <div className="relative min-h-screen bg-slate-200/50 font-sans selection:bg-slate-900/30 selection:text-slate-900 antialiased">
         <AnimatePresence>
           {isLoading && <Loader key="loader" />}
         </AnimatePresence>
 
-        {!isLoading && (
-          <div className="app-shell border-x border-black/5 ring-1 ring-black/[0.02]">
-            <AppHeader />
-            <AppRoutes />
-            <UserBottomNav />
-          </div>
-        )}
+        {!isLoading && <AppContent />}
       </div>
     </Router>
   );

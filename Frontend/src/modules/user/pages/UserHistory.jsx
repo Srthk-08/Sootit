@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 const UserHistory = () => {
     const navigate = useNavigate();
     const transactions = [
-        { id: "TX-9021", type: "Add Money", amount: "+ ₹500.00", date: "Today, 11:20 AM", status: "Success", icon: ArrowUpRight, clr: "bg-green-100 text-green-600" },
-        { id: "TX-8812", type: "Expert Booking", amount: "- ₹150.00", date: "Yesterday, 04:45 PM", status: "Success", icon: ArrowDownLeft, clr: "bg-blue-100 text-blue-600" },
-        { id: "TX-7734", type: "Refund", amount: "+ ₹200.00", date: "03 Apr, 2024", status: "Success", icon: ArrowUpRight, clr: "bg-orange-100 text-orange-600" },
+        { id: "TX-9021", type: "Add Money", amount: "+ ₹500.00", date: "Today, 11:20 AM", status: "Success", icon: ArrowUpRight, clr: "bg-slate-900 text-white" },
+        { id: "TX-8812", type: "Expert Booking", amount: "- ₹150.00", date: "Yesterday, 04:45 PM", status: "Success", icon: ArrowDownLeft, clr: "bg-slate-50 text-slate-800" },
+        { id: "TX-7734", type: "Refund", amount: "+ ₹200.00", date: "03 Apr, 2024", status: "Success", icon: ArrowUpRight, clr: "bg-neutral-50 text-neutral-400" },
     ];
 
     return (
@@ -25,19 +25,19 @@ const UserHistory = () => {
                     <motion.div
                         key={idx}
                         whileTap={{ scale: 0.98 }}
-                        className="flex items-center justify-between p-4 bg-white border border-black/5 rounded-[1.5rem] shadow-xl shadow-black/[0.01] active:border-blue-600/20 transition-all"
+                        className="flex items-center justify-between p-4 bg-white border border-black/5 rounded-[1.5rem] shadow-xl shadow-black/[0.01] active:border-slate-900/10 transition-all"
                     >
                         <div className="flex items-center gap-3">
                             <div className={`h-10 w-10 ${tx.clr} rounded-xl flex items-center justify-center shadow-sm`}>
                                 <tx.icon size={18} strokeWidth={2.5} />
                             </div>
                             <div className="flex flex-col">
-                                <h4 className="text-[11px] font-black text-neutral-900 leading-none mb-1.5">{tx.type}</h4>
+                                <h4 className="text-[11px] font-black text-neutral-900 uppercase tracking-widest leading-none mb-1.5">{tx.type}</h4>
                                 <span className="text-[8px] font-bold text-neutral-400 uppercase tracking-widest">{tx.date}</span>
                             </div>
                         </div>
                         <div className="text-right">
-                            <h4 className={`text-[12px] font-black italic mb-1 ${tx.amount.startsWith('+') ? 'text-green-600' : 'text-neutral-900'}`}>{tx.amount}</h4>
+                            <h4 className={`text-[12px] font-black italic mb-1 ${tx.amount.startsWith('+') ? 'text-slate-900' : 'text-neutral-900 opacity-60'}`}>{tx.amount}</h4>
                             <span className="text-[7px] font-black uppercase text-neutral-300 tracking-tighter">TXID: {tx.id}</span>
                         </div>
                     </motion.div>

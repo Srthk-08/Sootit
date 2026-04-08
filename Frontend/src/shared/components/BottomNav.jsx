@@ -9,7 +9,7 @@ const AppBottomNav = () => {
   const isAdmin = currentPath.startsWith('/admin');
 
   // Hide Bottom Navigation on Auth Pages
-  const authRoutes = ['/vendor/login', '/vendor/register', '/user/login', '/user/register'];
+  const authRoutes = ['/', '/vendor/login', '/vendor/register', '/user/login', '/user/register'];
   const hideNav = authRoutes.includes(currentPath);
   
   if (hideNav) return null;
@@ -21,13 +21,13 @@ const AppBottomNav = () => {
         <motion.div 
           animate={isActive ? { scale: 1.05, y: -2 } : { scale: 1, y: 0 }}
           className={`h-9 w-9 rounded-2xl flex items-center justify-center transition-all ${
-            isActive ? (isAdmin ? 'bg-neutral-900 shadow-xl shadow-black/10' : isVendor ? "bg-indigo-600 shadow-xl shadow-indigo-600/20" : "bg-red-600 shadow-xl shadow-red-600/20") : "bg-transparent text-neutral-300"
+            isActive ? "bg-slate-900 shadow-xl shadow-slate-900/20" : "bg-transparent text-neutral-300"
           }`}
         >
           <Icon size={16} strokeWidth={isActive ? 3 : 2.5} className={isActive ? "text-white" : ""} />
         </motion.div>
         <span className={`text-[8px] font-black tracking-widest uppercase transition-colors ${
-          isActive ? (isAdmin ? 'text-neutral-900' : isVendor ? 'text-indigo-600' : 'text-red-600') : 'text-neutral-300'
+          isActive ? "text-slate-900" : 'text-neutral-300'
         }`}>
           {label}
         </span>

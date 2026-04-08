@@ -22,31 +22,31 @@ const VendorProfile = () => {
   };
 
   return (
-    <div className="bg-neutral-50 min-h-screen pb-24 text-neutral-900">
-      <div className="bg-white px-4 py-6 border-b border-neutral-100 flex items-center gap-4 sticky top-0 z-10">
-        <Link to="/vendor/settings"><ArrowLeft size={24} /></Link>
-        <h1 className="text-xl font-black italic">My Profile.</h1>
+    <div className="bg-neutral-50 min-h-screen pb-24 text-neutral-900 font-inter">
+      <div className="bg-white px-6 py-6 border-b border-neutral-100 flex items-center gap-4 sticky top-0 z-10 shadow-sm shadow-black/[0.01]">
+        <Link to="/vendor/settings" className="h-10 w-10 bg-neutral-50 rounded-xl flex items-center justify-center border border-neutral-100 active:scale-90 transition-transform"><ArrowLeft size={20} /></Link>
+        <h1 className="text-xl font-black italic tracking-tighter">My Profile.</h1>
       </div>
 
-      <div className="px-4 py-8">
+      <div className="px-6 py-8">
         <div className="flex flex-col items-center mb-10">
           <div className="relative group">
-            <div className="h-24 w-24 bg-blue-100 rounded-[2rem] flex items-center justify-center text-blue-600 font-black text-2xl border-4 border-white shadow-xl">
-              SG
+            <div className="h-24 w-24 bg-slate-900 rounded-[2.5rem] flex items-center justify-center text-white font-black text-2xl border-4 border-white shadow-2xl shadow-black/10 transition-transform group-hover:scale-105">
+              {formData.name?.[0] || 'SG'}
             </div>
-            <div className="absolute bottom-0 right-0 h-8 w-8 bg-neutral-900 rounded-xl flex items-center justify-center text-white border-2 border-white cursor-pointer active:scale-90 transition-transform">
+            <div className="absolute bottom-0 right-0 h-9 w-9 bg-slate-800 rounded-2xl flex items-center justify-center text-white border-2 border-white cursor-pointer active:scale-90 transition-transform shadow-lg">
               <Camera size={14} />
             </div>
           </div>
-          <h2 className="mt-4 text-lg font-black tracking-tight">{formData.name}</h2>
-          <span className="text-[10px] font-black uppercase text-blue-600 tracking-widest bg-blue-50 px-2 py-0.5 rounded-lg mt-1">ID: VND-48201A</span>
+          <h2 className="mt-5 text-xl font-black tracking-tight">{formData.name}</h2>
+          <span className="text-[10px] font-black uppercase text-slate-900 tracking-widest bg-slate-50 px-3 py-1 rounded-xl mt-2 border border-slate-100 shadow-sm">ID: VND-48201A</span>
         </div>
 
         <div className="space-y-6">
           <div>
-             <label className="text-[10px] font-black uppercase text-neutral-400 tracking-widest pl-1 mb-1 block">Full Name</label>
-             <div className="bg-white border border-neutral-200 rounded-2xl px-4 py-3 flex items-center gap-3">
-                <User size={18} className="text-neutral-400" />
+             <label className="text-[10px] font-black uppercase text-neutral-400 tracking-[0.2em] pl-1 mb-2 block">Full Name</label>
+             <div className="bg-white border border-black/5 rounded-2xl px-5 py-4 flex items-center gap-3 shadow-xl shadow-black/[0.01]">
+                <User size={18} className="text-neutral-300" />
                 <input 
                   type="text" 
                   value={formData.name} 
@@ -57,25 +57,25 @@ const VendorProfile = () => {
           </div>
 
           <div>
-             <label className="text-[10px] font-black uppercase text-neutral-400 tracking-widest pl-1 mb-1 block">Email Address</label>
-             <div className="bg-white border border-neutral-100 rounded-2xl px-4 py-3 flex items-center gap-3 opacity-60">
-                <Mail size={18} className="text-neutral-400" />
+             <label className="text-[10px] font-black uppercase text-neutral-400 tracking-[0.2em] pl-1 mb-2 block">Email Address</label>
+             <div className="bg-white border border-black/5 rounded-2xl px-5 py-4 flex items-center gap-3 opacity-60 shadow-xl shadow-black/[0.01]">
+                <Mail size={18} className="text-neutral-300" />
                 <input type="email" value={formData.email} disabled className="bg-transparent text-sm font-bold w-full focus:outline-none" />
              </div>
           </div>
 
           <div>
-             <label className="text-[10px] font-black uppercase text-neutral-400 tracking-widest pl-1 mb-1 block">Phone Number</label>
-             <div className="bg-white border border-neutral-100 rounded-2xl px-4 py-3 flex items-center gap-3 opacity-60">
-                <Phone size={18} className="text-neutral-400" />
+             <label className="text-[10px] font-black uppercase text-neutral-400 tracking-[0.2em] pl-1 mb-2 block">Phone Number</label>
+             <div className="bg-white border border-black/5 rounded-2xl px-5 py-4 flex items-center gap-3 opacity-60 shadow-xl shadow-black/[0.01]">
+                <Phone size={18} className="text-neutral-300" />
                 <input type="tel" value={formData.phone} disabled className="bg-transparent text-sm font-bold w-full focus:outline-none" />
              </div>
           </div>
 
           <div>
-             <label className="text-[10px] font-black uppercase text-neutral-400 tracking-widest pl-1 mb-1 block">Residential Address</label>
-             <div className="bg-white border border-neutral-200 rounded-2xl px-4 py-3 flex items-start gap-3">
-                <MapPin size={18} className="text-neutral-400 mt-1" />
+             <label className="text-[10px] font-black uppercase text-neutral-400 tracking-[0.2em] pl-1 mb-2 block">Service Address</label>
+             <div className="bg-white border border-black/5 rounded-2xl px-5 py-4 flex items-start gap-3 shadow-xl shadow-black/[0.01]">
+                <MapPin size={18} className="text-neutral-300 mt-1" />
                 <textarea 
                   rows={3}
                   value={formData.address}
@@ -87,9 +87,9 @@ const VendorProfile = () => {
 
           <button 
             onClick={handleSave}
-            className="w-full bg-blue-600 text-white rounded-2xl py-4 font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2 active:scale-95 transition-transform mt-8 shadow-xl shadow-blue-600/20"
+            className="w-full bg-slate-900 text-white rounded-[1.8rem] py-5 font-black uppercase tracking-widest text-[11px] flex items-center justify-center gap-3 active:scale-95 transition-all mt-10 shadow-2xl shadow-black/10"
           >
-             Save Profile <Save size={16} />
+             Save Profile <Save size={18} />
           </button>
         </div>
       </div>

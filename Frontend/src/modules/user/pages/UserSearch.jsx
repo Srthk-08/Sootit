@@ -7,10 +7,11 @@ const UserSearch = () => {
     const navigate = useNavigate();
     const [query, setQuery] = useState("");
     const categories = [
-        { label: "Drivers", icon: Navigation, clr: "bg-blue-50 text-blue-600", count: 12 },
-        { label: "Mechanics", icon: Wrench, clr: "bg-orange-50 text-orange-600", count: 8 },
-        { label: "RTO Help", icon: FileText, clr: "bg-purple-50 text-purple-600", count: 4 },
-        { label: "Towing", icon: Truck, clr: "bg-red-50 text-red-600", count: 6 },
+        { label: "Drivers", icon: Navigation, clr: "bg-slate-900 text-white", count: 12 },
+        { label: "Mechanics", icon: Wrench, clr: "bg-slate-50 text-slate-800", count: 8 },
+        { label: "RTO Help", icon: FileText, clr: "bg-neutral-800 text-white", count: 4 },
+        { label: "Towing", icon: Truck, clr: "bg-slate-100 text-slate-900 border border-slate-200", count: 6 },
+        { label: "Legal Advisor", icon: Briefcase, clr: "bg-slate-900 text-white", count: 3 },
     ];
 
     const popularSearches = ["Expert Driver for Highway", "Swift Dzire Service", "Need Emergency Towing", "RTO Transfer Help"];
@@ -20,11 +21,11 @@ const UserSearch = () => {
             {/* Minimal Search Header */}
             <div className="px-5 pt-10 pb-6 sticky top-0 bg-[#FAFBFD]/80 backdrop-blur-md z-50">
                 <div className="relative group">
-                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400 group-focus-within:text-blue-600 transition-colors" size={16} />
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400 group-focus-within:text-slate-900 transition-colors" size={16} />
                     <input 
                         type="text"
                         placeholder="Search service or expert..."
-                        className="w-full bg-white border border-black/5 rounded-2xl py-3.5 pl-12 pr-4 text-xs font-bold shadow-xl shadow-black/[0.02] focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 outline-none transition-all placeholder:text-neutral-300"
+                        className="w-full bg-white border border-black/5 rounded-2xl py-3.5 pl-12 pr-4 text-xs font-bold shadow-xl shadow-black/[0.02] focus:ring-2 focus:ring-slate-900/10 focus:border-slate-900 outline-none transition-all placeholder:text-neutral-300"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                     />
@@ -43,7 +44,7 @@ const UserSearch = () => {
                                 key={idx}
                                 whileTap={{ scale: 0.95 }}
                                 onClick={() => navigate(`/user/category/${cat.label.toLowerCase()}?label=${cat.label}`)}
-                                className="bg-white rounded-[2rem] p-5 border border-black/5 shadow-xl shadow-black/[0.01] flex flex-col items-center gap-2 transition-all cursor-pointer group active:border-blue-600/30"
+                                className="bg-white rounded-[2rem] p-5 border border-black/5 shadow-xl shadow-black/[0.01] flex flex-col items-center gap-2 transition-all cursor-pointer group active:border-slate-900/30"
                             >
                                 <div className={`h-10 w-10 ${cat.clr} rounded-xl flex items-center justify-center shadow-sm group-active:scale-95 transition-transform`}>
                                     <cat.icon size={18} strokeWidth={2.5} />

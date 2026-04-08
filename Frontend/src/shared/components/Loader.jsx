@@ -20,7 +20,7 @@ const Loader = () => {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="h-16 w-16 bg-blue-600 dark:bg-blue-400"
+          className="h-16 w-16 bg-slate-900 dark:bg-slate-700"
         />
         <motion.h2
           initial={{ opacity: 0, y: 10 }}
@@ -38,8 +38,9 @@ const Loader = () => {
               duration: 2,
               repeat: Infinity,
               ease: "linear",
+              repeatDelay: 0.5
             }}
-            className="h-full bg-blue-600 dark:bg-blue-400"
+            className="h-full bg-slate-900 dark:bg-slate-700"
           />
         </div>
       </div>

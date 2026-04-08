@@ -16,12 +16,12 @@ const AdminDashboard = () => {
 
         <div className="grid grid-cols-2 gap-4">
           {[
-            { label: "Active Revenue", val: "₹12.4L", icon: TrendingUp, clr: "text-green-500" },
-            { label: "System Uptime", val: "99.98%", icon: Activity, clr: "text-blue-500" },
+            { label: "Active Revenue", val: "₹12.4L", icon: TrendingUp, clr: "text-white" },
+            { label: "System Uptime", val: "99.98%", icon: Activity, clr: "text-slate-400" },
           ].map((stat, i) => (
             <div key={i} className="p-4 bg-white/5 border border-white/10 rounded-2xl">
               <div className="flex items-center gap-2 mb-2">
-                <stat.icon size={12} className={stat.clr} />
+                <stat.icon size={12} className={stat.clr} strokeWidth={3} />
                 <span className="text-[9px] font-black uppercase tracking-widest text-white/40">{stat.label}</span>
               </div>
               <span className="text-xl font-black">{stat.val}</span>
@@ -33,8 +33,8 @@ const AdminDashboard = () => {
       <section className="px-4 py-8">
         <div className="flex items-center justify-between mb-6 px-1">
           <h2 className="text-xs font-black text-neutral-900 uppercase tracking-[0.2em]">Module Health</h2>
-          <div className="h-5 w-5 rounded-full bg-green-500/20 flex items-center justify-center">
-            <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+          <div className="h-5 w-5 rounded-full bg-slate-900/20 flex items-center justify-center">
+            <div className="h-2 w-2 rounded-full bg-slate-900 animate-pulse" />
           </div>
         </div>
 
@@ -57,7 +57,7 @@ const AdminDashboard = () => {
                 <span className="text-[10px] font-bold text-neutral-400 capitalize">{item.count}</span>
               </div>
               {item.alert && (
-                <div className="absolute top-4 right-4 h-6 w-6 bg-red-100 rounded-lg flex items-center justify-center text-red-600">
+                <div className="absolute top-4 right-4 h-6 w-6 bg-slate-50 border border-slate-100 rounded-lg flex items-center justify-center text-slate-900">
                   <AlertTriangle size={14} strokeWidth={3} />
                 </div>
               )}

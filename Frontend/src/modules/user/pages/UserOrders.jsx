@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 const UserOrders = () => {
     const navigate = useNavigate();
     const orders = [
-        { id: "ORD-9821", expert: "Amit Vikram", type: "Expert Driver", date: "Today, 10:30 AM", status: "Active", price: "450", icon: Navigation, clr: "bg-blue-100 text-blue-600" },
-        { id: "ORD-7712", expert: "Sharma Garage", type: "Full Service", date: "Yesterday, 04:15 PM", status: "Completed", price: "2800", icon: Wrench, clr: "bg-orange-100 text-orange-600" },
-        { id: "ORD-6623", expert: "Towing Kings", type: "Emergency Tow", date: "02 Apr, 2024", status: "Cancelled", price: "1200", icon: Package, clr: "bg-red-100 text-red-600" },
+        { id: "ORD-9821", expert: "Amit Vikram", type: "Expert Driver", date: "Today, 10:30 AM", status: "Active", price: "450", icon: Navigation, clr: "bg-slate-900 text-white" },
+        { id: "ORD-7712", expert: "Sharma Garage", type: "Full Service", date: "Yesterday, 04:15 PM", status: "Completed", price: "2800", icon: Wrench, clr: "bg-slate-100 text-slate-800" },
+        { id: "ORD-6623", expert: "Towing Kings", type: "Emergency Tow", date: "02 Apr, 2024", status: "Cancelled", price: "1200", icon: Package, clr: "bg-neutral-50 text-neutral-400" },
     ];
 
     return (
@@ -25,7 +25,8 @@ const UserOrders = () => {
                     <motion.div
                         key={idx}
                         whileTap={{ scale: 0.98 }}
-                        className="bg-white border border-black/5 rounded-[2rem] p-5 shadow-xl shadow-black/[0.01] flex flex-col gap-4 active:border-blue-600/30 transition-all group"
+                        onClick={() => navigate(`/user/order/${order.id}`)}
+                        className="bg-white border border-black/5 rounded-[2rem] p-5 shadow-xl shadow-black/[0.01] flex flex-col gap-4 active:border-slate-900/30 transition-all group cursor-pointer"
                     >
                         <div className="flex items-start justify-between">
                             <div className="flex items-center gap-3">
@@ -38,8 +39,8 @@ const UserOrders = () => {
                                 </div>
                             </div>
                             <span className={`text-[8px] font-black uppercase tracking-widest px-2 py-1 rounded-lg ${
-                                order.status === 'Active' ? 'bg-blue-100 text-blue-600' : 
-                                order.status === 'Completed' ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'
+                                order.status === 'Active' ? 'bg-slate-900 text-white' : 
+                                order.status === 'Completed' ? 'bg-neutral-800 text-white' : 'bg-neutral-100 text-neutral-400'
                             }`}>
                                 {order.status}
                             </span>

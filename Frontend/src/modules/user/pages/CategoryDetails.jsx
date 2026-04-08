@@ -24,7 +24,7 @@ const CategoryDetails = () => {
                     </button>
                     <div>
                         <h1 className="text-lg font-black tracking-tighter italic leading-none mb-1">{label}</h1>
-                        <span className="text-[9px] font-black uppercase text-blue-600 tracking-widest leading-none">Top Verified</span>
+                        <span className="text-[9px] font-black uppercase text-slate-900 tracking-widest leading-none">Top Verified</span>
                     </div>
                 </div>
                 <button className="h-9 w-9 bg-neutral-900 text-white rounded-xl flex items-center justify-center shadow-lg active:scale-90 transition-transform">
@@ -45,18 +45,18 @@ const CategoryDetails = () => {
                             </div>
                             <div className="flex-1">
                                 <div className="flex items-center justify-between mb-1">
-                                    <h3 className="text-sm font-black text-neutral-900 tracking-tight leading-none">{expert.name}</h3>
+                                    <h3 className="text-sm font-black text-neutral-900 tracking-tight leading-none uppercase italic">{expert.name}</h3>
                                     <div className="flex items-center gap-1 group-active:scale-95 transition-transform">
                                         <Star size={10} className="fill-yellow-500 text-yellow-500" />
                                         <span className="text-[10px] font-black text-neutral-900">{expert.rating}</span>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-2 mb-1.5 opacity-60">
-                                    <Shield size={9} className="text-blue-500" />
-                                    <span className="text-[8px] font-black uppercase tracking-widest">{expert.exp} Experience</span>
+                                <div className="flex items-center gap-2 mb-1.5 opacity-60 font-inter">
+                                    <Shield size={9} className="text-slate-900" />
+                                    <span className="text-[8px] font-black uppercase tracking-widest text-slate-900">{expert.exp} Experience</span>
                                 </div>
                                 <div className="flex items-center gap-1">
-                                    <div className="h-1.5 w-1.5 bg-green-500 rounded-full animate-pulse" />
+                                    <div className="h-1.5 w-1.5 bg-slate-900 rounded-full animate-pulse" />
                                     <span className="text-[8px] font-black uppercase tracking-widest text-neutral-400">{expert.status}</span>
                                 </div>
                             </div>
@@ -64,10 +64,13 @@ const CategoryDetails = () => {
 
                         <div className="flex items-center justify-between pt-4 border-t border-black/[0.03]">
                             <div>
-                                <span className="text-[8px] font-black uppercase text-neutral-300 tracking-widest block mb-0.5">Approx. Fare</span>
+                                <span className="text-[8px] font-black uppercase text-neutral-300 tracking-widest block mb-1 leading-none">Starting from</span>
                                 <h4 className="text-lg font-black text-neutral-900 italic tracking-tighter leading-none">{expert.price}</h4>
                             </div>
-                            <button className="bg-blue-600 text-white px-6 py-3 rounded-xl font-black uppercase text-[10px] tracking-widest shadow-xl shadow-blue-600/20 active:scale-95 transition-all">
+                            <button 
+                                onClick={() => navigate('/user/booking-success')}
+                                className="bg-slate-900 text-white px-7 py-3 rounded-xl font-black uppercase text-[10px] tracking-widest shadow-xl shadow-black/10 active:scale-95 transition-all"
+                            >
                                 Hire Expert
                             </button>
                         </div>

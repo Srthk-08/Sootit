@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 const UserFind = () => {
   const navigate = useNavigate();
   const nearbyVendors = [
-    { name: "Amit Vikram", type: "Driver", dist: "0.8 km", rating: "4.9", clr: "text-blue-600", bg: "bg-blue-50", img: "https://i.pravatar.cc/100?u=amit" },
-    { name: "S. K. Garage", type: "Mechanic", dist: "1.2 km", rating: "4.8", clr: "text-orange-600", bg: "bg-orange-50", img: "https://i.pravatar.cc/100?u=sk" },
-    { name: "Fast Towing", type: "Towing", dist: "2.5 km", rating: "4.7", clr: "text-red-600", bg: "bg-red-50", img: "https://i.pravatar.cc/100?u=fast" },
+    { name: "Amit Vikram", type: "Driver", dist: "0.8 km", rating: "4.9", clr: "text-slate-900", bg: "bg-slate-50", img: "https://i.pravatar.cc/100?u=amit" },
+    { name: "S. K. Garage", type: "Mechanic", dist: "1.2 km", rating: "4.8", clr: "text-slate-700", bg: "bg-slate-50", img: "https://i.pravatar.cc/100?u=sk" },
+    { name: "Fast Towing", type: "Towing", dist: "2.5 km", rating: "4.7", clr: "text-neutral-600", bg: "bg-neutral-50", img: "https://i.pravatar.cc/100?u=fast" },
   ];
 
   return (
@@ -18,7 +18,7 @@ const UserFind = () => {
         <motion.div 
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="h-10 w-10 bg-blue-600 rounded-2xl flex items-center justify-center shadow-2xl shadow-blue-600/40 relative z-10"
+          className="h-10 w-10 bg-slate-900 rounded-2xl flex items-center justify-center shadow-2xl shadow-slate-900/40 relative z-10"
         >
           <MapPin size={20} className="text-white" strokeWidth={3} />
         </motion.div>
@@ -26,7 +26,7 @@ const UserFind = () => {
 
       <div className="px-4 -mt-6 relative z-20 space-y-4">
         <div className="flex items-center justify-between px-2 bg-white/80 backdrop-blur-md p-3 rounded-2xl border border-black/5 shadow-sm mb-6">
-          <h2 className="text-[10px] font-black uppercase text-neutral-900 tracking-widest leading-none pl-3 border-l-2 border-blue-600">3 Experts Nearby</h2>
+          <h2 className="text-[10px] font-black uppercase text-neutral-900 tracking-widest leading-none pl-3 border-l-2 border-slate-900">3 Experts Nearby</h2>
           <button className="h-8 w-8 bg-neutral-900 text-white rounded-xl flex items-center justify-center active:scale-90 transition-transform shadow-lg">
             <Filter size={14} strokeWidth={3} />
           </button>
@@ -59,7 +59,7 @@ const UserFind = () => {
                   </div>
                 </div>
               </div>
-              <div className="h-9 w-9 bg-neutral-50 rounded-xl flex items-center justify-center text-neutral-300 active:bg-blue-600 active:text-white transition-colors">
+              <div className="h-9 w-9 bg-neutral-50 rounded-xl flex items-center justify-center text-neutral-300 active:bg-slate-900 active:text-white transition-colors">
                 <ArrowRight size={16} strokeWidth={3} />
               </div>
             </motion.div>

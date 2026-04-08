@@ -22,15 +22,15 @@ const Home = () => {
         <section>
           <div className="flex items-center justify-between mb-4 px-1">
             <h3 className="text-[9px] font-black uppercase text-slate-400 tracking-[0.25em] flex items-center gap-1.5">
-              <TrendingUp size={10} className="text-red-500" /> PREMIUM SELECTION
+              <TrendingUp size={10} className="text-slate-900" /> PREMIUM SELECTION
             </h3>
-            <button className="text-[9px] font-black text-red-600 uppercase tracking-widest active:scale-95 transition-all">SEE ALL</button>
+            <button className="text-[9px] font-black text-slate-900 uppercase tracking-widest active:scale-95 transition-all">SEE ALL</button>
           </div>
           
           <div className="flex gap-3 overflow-x-auto hide-scrollbar -mx-4 px-4 pb-1 snap-x snap-mandatory">
             {[
               { name: "Amit Vikram", type: "Expert Driver", rate: "4.9", jobs: "120+", img: "https://images.unsplash.com/photo-1549813069-f95e44d7f498?q=80&w=400", clr: "from-slate-900/90 to-slate-900/10" },
-              { name: "S. K. Garage", type: "Mechanic", rate: "4.8", jobs: "310+", img: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=400", clr: "from-red-900/90 to-red-900/10" },
+              { name: "S. K. Garage", type: "Mechanic", rate: "4.8", jobs: "310+", img: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=400", clr: "from-neutral-900/90 to-neutral-900/10" },
               { name: "Fast Towing", type: "Expert", rate: "4.7", jobs: "85+", img: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=400", clr: "from-slate-800/90 to-slate-800/10" }
             ].map((p, i) => (
               <motion.div
@@ -64,14 +64,14 @@ const Home = () => {
         <section>
           <div className="flex items-center justify-between mb-4 px-1">
             <h3 className="text-[9px] font-black uppercase text-slate-400 tracking-[0.2em] leading-none">QUICK ASSIST</h3>
-            <div className="h-[1px] w-4 bg-red-600/30 rounded-full" />
+            <div className="h-[1px] w-4 bg-slate-900/10 rounded-full" />
           </div>
           <div className="grid grid-cols-2 gap-2.5">
-             <motion.div whileTap={{scale:0.96}} className="bg-red-600 rounded-[1.5rem] p-4 flex flex-col gap-2 shadow-lg shadow-red-100">
-                <div className="h-8 w-8 bg-white/20 rounded-xl flex items-center justify-center text-white"><Zap size={16} fill="currentColor" /></div>
+             <motion.div whileTap={{scale:0.96}} className="bg-slate-900 rounded-[1.5rem] p-4 flex flex-col gap-2 shadow-lg shadow-slate-100">
+                <div className="h-8 w-8 bg-white/10 rounded-xl flex items-center justify-center text-white"><Zap size={16} fill="currentColor" /></div>
                 <span className="text-white text-[10px] font-black tracking-tighter italic leading-none">Roadside Help</span>
              </motion.div>
-             <motion.div whileTap={{scale:0.96}} className="bg-slate-900 rounded-[1.5rem] p-4 flex flex-col gap-2 shadow-lg shadow-slate-100">
+             <motion.div whileTap={{scale:0.96}} className="bg-neutral-800 rounded-[1.5rem] p-4 flex flex-col gap-2 shadow-lg shadow-neutral-100">
                 <div className="h-8 w-8 bg-white/10 rounded-xl flex items-center justify-center text-white"><Shield size={16} /></div>
                 <span className="text-white text-[10px] font-black tracking-tighter italic leading-none">Legal Support</span>
              </motion.div>
@@ -87,15 +87,15 @@ const Home = () => {
             whileTap={{ scale: 0.98 }}
             className="bg-slate-50 border border-slate-100 rounded-[1.4rem] p-3 flex items-center gap-3 active:scale-95 transition-all"
           >
-            <div className="h-9 w-9 bg-red-600 text-white rounded-xl flex items-center justify-center shadow-lg shadow-red-100">
+            <div className="h-9 w-9 bg-slate-900 text-white rounded-xl flex items-center justify-center shadow-lg shadow-slate-100">
               <Clock size={16} strokeWidth={2.5} />
             </div>
             <div className="flex-1">
               <div className="flex justify-between items-center mb-0.5">
                 <h4 className="text-[10px] font-black text-slate-900 leading-none italic">Mechanic Dispatched</h4>
                 <div className="flex gap-0.5 animate-pulse">
-                    <div className="h-1 w-2 bg-red-600 rounded-full" />
-                    <div className="h-1 w-1 bg-red-600/30 rounded-full" />
+                    <div className="h-1 w-2 bg-slate-400 rounded-full" />
+                    <div className="h-1 w-1 bg-slate-200 rounded-full" />
                 </div>
               </div>
               <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none">Coming in 8 Mins</span>
@@ -107,7 +107,7 @@ const Home = () => {
         <div className="grid grid-cols-2 gap-2 pb-6">
           {[
             { label: "15k+", sub: "Users", icon: User, clr: "text-slate-800", bg: "bg-slate-100" },
-            { label: "500+", sub: "Pros", icon: Star, clr: "text-red-600", bg: "bg-red-50" },
+            { label: "500+", sub: "Pros", icon: Star, clr: "text-slate-900", bg: "bg-slate-50" },
           ].map((item, i) => (
             <div key={i} className="bg-white border border-slate-100 rounded-[1.2rem] p-3 flex flex-col items-center gap-1.5 text-center">
               <div className={`h-8 w-8 ${item.bg} ${item.clr} rounded-xl flex items-center justify-center`}>

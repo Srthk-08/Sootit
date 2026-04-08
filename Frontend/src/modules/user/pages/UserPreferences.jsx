@@ -50,7 +50,7 @@ const UserPreferences = () => {
                             label="Push Notifications" 
                             status={notifications} 
                             setStatus={setNotifications} 
-                            clr="bg-blue-50 text-blue-600" 
+                            clr="bg-slate-900 text-white" 
                         />
                         <div className="mx-6 border-t border-black/[0.02]" />
                         <PreferenceToggle 
@@ -58,7 +58,7 @@ const UserPreferences = () => {
                             label="Dark Appearance" 
                             status={darkMode} 
                             setStatus={setDarkMode} 
-                            clr="bg-indigo-50 text-indigo-600" 
+                            clr="bg-slate-100 text-slate-900" 
                         />
                     </div>
                 </section>
@@ -68,7 +68,7 @@ const UserPreferences = () => {
                     <div className="bg-white border border-black/5 rounded-[2.5rem] overflow-hidden shadow-xl shadow-black/[0.01]">
                         <div className="flex items-center justify-between p-5 active:bg-neutral-50 transition-colors">
                             <div className="flex items-center gap-4">
-                                <div className="h-10 w-10 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center shadow-sm">
+                                <div className="h-10 w-10 bg-slate-50 text-slate-900 rounded-xl flex items-center justify-center shadow-sm">
                                     <Globe size={18} strokeWidth={2.5} />
                                 </div>
                                 <div className="flex flex-col">
@@ -80,7 +80,7 @@ const UserPreferences = () => {
                         <div className="mx-6 border-t border-black/[0.02]" />
                         <div className="flex items-center justify-between p-5 active:bg-neutral-50 transition-colors">
                             <div className="flex items-center gap-4">
-                                <div className="h-10 w-10 bg-green-50 text-green-600 rounded-xl flex items-center justify-center shadow-sm">
+                                <div className="h-10 w-10 bg-neutral-900 text-white rounded-xl flex items-center justify-center shadow-sm">
                                     <Shield size={18} strokeWidth={2.5} />
                                 </div>
                                 <div className="flex flex-col">

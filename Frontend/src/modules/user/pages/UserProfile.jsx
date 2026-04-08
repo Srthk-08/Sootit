@@ -52,15 +52,15 @@ const UserProfile = () => {
                         <div className="h-24 w-24 bg-slate-800 rounded-[2.5rem] flex items-center justify-center text-white text-4xl font-black shadow-2xl shadow-slate-800/30 border-4 border-white">
                             {user.profile.name?.[0] || 'U'}
                         </div>
-                        <div className="absolute -bottom-1 -right-1 h-8 w-8 bg-red-600 rounded-full border-4 border-white flex items-center justify-center">
+                        <div className="absolute -bottom-1 -right-1 h-8 w-8 bg-slate-900 rounded-full border-4 border-white flex items-center justify-center">
                             <Shield size={14} className="text-white" fill="white" />
                         </div>
                     </div>
                     <div className="flex-1">
                         <h2 className="text-2xl font-black text-slate-900 tracking-tight leading-tight mb-1">{user.profile.name || "Arjun Dev"}</h2>
                         <span className="text-[11px] font-black text-neutral-400 uppercase tracking-[0.2em] mb-2.5">ID: USR-7721A-09</span>
-                        <div className="flex items-center gap-1.5 bg-red-50 text-red-600 px-3 py-1.5 rounded-xl self-start border border-red-100/50 shadow-sm">
-                            <Star size={12} className="fill-red-600" />
+                        <div className="flex items-center gap-1.5 bg-slate-50 text-slate-900 px-3 py-1.5 rounded-xl self-start border border-slate-100 shadow-sm">
+                            <Star size={12} className="fill-slate-900" />
                             <span className="text-[10px] font-black uppercase tracking-widest leading-none">Premium User</span>
                         </div>
                     </div>
@@ -71,7 +71,7 @@ const UserProfile = () => {
                     whileTap={{ scale: 0.98 }}
                     className="bg-slate-900 rounded-[3rem] p-8 text-white shadow-2xl shadow-black/20 relative overflow-hidden group mb-12"
                 >
-                    <div className="absolute top-0 right-0 h-full w-40 bg-red-600/20 skew-x-[-25deg] translate-x-12 blur-3xl" />
+                    <div className="absolute top-0 right-0 h-full w-40 bg-white/5 skew-x-[-25deg] translate-x-12 blur-3xl" />
                     <div className="relative z-10">
                         <div className="flex justify-between items-start mb-8">
                             <div>
@@ -110,8 +110,8 @@ const UserProfile = () => {
                                 icon={Star} 
                                 label="My Rated Experts" 
                                 sublabel="Expert Feedback" 
-                                bg="bg-red-50" 
-                                color="text-red-600"
+                                bg="bg-neutral-50" 
+                                color="text-neutral-800"
                                 onClick={() => navigate('/user/reviews')}
                             />
                         </div>
@@ -120,6 +120,15 @@ const UserProfile = () => {
                     <section>
                         <h3 className="text-[11px] font-black uppercase text-neutral-300 tracking-[0.25em] mb-5 pl-1">System & Personal</h3>
                         <div className="bg-white border border-neutral-100 rounded-[2.5rem] overflow-hidden shadow-xl shadow-black/[0.01]">
+                            <MenuButton 
+                                icon={HelpCircle} 
+                                label="Help & Support" 
+                                sublabel="24/7 Assistance" 
+                                bg="bg-neutral-50" 
+                                color="text-neutral-900"
+                                onClick={() => navigate('/user/support')}
+                            />
+                            <div className="mx-6 border-t border-neutral-50" />
                             <MenuButton 
                                 icon={Settings} 
                                 label="App Settings" 
@@ -135,7 +144,7 @@ const UserProfile = () => {
                     <motion.button 
                         whileTap={{ scale: 0.98 }}
                         onClick={logoutUser}
-                        className="w-full h-20 bg-red-50 text-red-600 rounded-[2.5rem] border border-red-100/50 flex items-center justify-center gap-4 font-black uppercase text-xs tracking-[0.3em] active:scale-95 transition-all shadow-xl shadow-red-600/5 mb-10"
+                        className="w-full h-20 bg-slate-50 text-slate-900 rounded-[2.5rem] border border-slate-100 flex items-center justify-center gap-4 font-black uppercase text-xs tracking-[0.3em] active:scale-95 transition-all shadow-xl shadow-slate-900/5 mb-10"
                     >
                         <LogOut size={18} strokeWidth={3} />
                         Logout Session

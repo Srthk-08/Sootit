@@ -7,68 +7,73 @@ const VendorSettings = () => {
 
   const handleLogout = () => {
     logoutVendor();
-    navigate('/vendor/login');
+    navigate('/');
   };
 
   return (
-    <div className="bg-neutral-50 min-h-screen pb-24">
-      <div className="bg-white px-4 pt-10 pb-6 shadow-sm flex items-center gap-4 border-b border-neutral-100">
-         <div className="h-16 w-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 font-black text-xl">
+    <div className="bg-neutral-50 min-h-screen pb-24 font-inter">
+      <div className="bg-white px-6 pt-10 pb-8 shadow-sm flex items-center gap-5 border-b border-neutral-100 sticky top-0 z-10">
+         <div className="h-16 w-16 bg-slate-900 rounded-[1.8rem] flex items-center justify-center text-white font-black text-xl shadow-xl shadow-black/10">
             SG
          </div>
          <div className="flex flex-col">
-            <h1 className="text-lg font-black tracking-tighter leading-none mb-1">Sharma Garage</h1>
-            <span className="text-[10px] font-bold text-neutral-400">ID: VND-48201A</span>
-            <div className="flex items-center gap-1 mt-1 bg-green-50 w-auto self-start px-2 py-0.5 rounded text-[8px] font-black uppercase text-green-600 border border-green-100">
-               <Shield size={10} /> KYC Verified
+            <h1 className="text-xl font-black tracking-tighter leading-none mb-1.5 uppercase italic">Sharma Garage</h1>
+            <span className="text-[10px] font-black text-neutral-400 uppercase tracking-widest">ID: VND-48201A</span>
+            <div className="flex items-center gap-1.5 mt-2 bg-slate-50 w-auto self-start px-2 py-1 rounded-lg text-[8px] font-black uppercase text-slate-900 border border-slate-100 shadow-sm">
+               <Shield size={10} className="fill-slate-900" /> KYC Verified
             </div>
          </div>
       </div>
 
-      <div className="px-4 py-6 space-y-6">
-         <div>
-            <h3 className="text-[10px] font-black uppercase text-neutral-400 tracking-widest pl-1 mb-2">Account Management</h3>
-            <div className="bg-white border text-sm font-bold border-neutral-100 rounded-2xl overflow-hidden shadow-sm">
-               <Link to="/vendor/profile" className="flex items-center justify-between p-4 border-b border-neutral-50 active:bg-neutral-50 transition-colors">
-                  <div className="flex items-center gap-3">
-                     <User size={18} className="text-neutral-500" /> My Profile
+      <div className="px-6 py-8 space-y-10">
+         <section>
+            <h3 className="text-[11px] font-black uppercase text-neutral-300 tracking-[0.25em] mb-5 pl-1">Management Console</h3>
+            <div className="bg-white border text-sm font-bold border-black/5 rounded-[2.5rem] overflow-hidden shadow-xl shadow-black/[0.01]">
+               <Link to="/vendor/profile" className="flex items-center justify-between p-5 border-b border-neutral-50 active:bg-neutral-50 transition-colors group">
+                  <div className="flex items-center gap-4">
+                     <User size={18} className="text-neutral-300 group-hover:text-slate-900 transition-colors" strokeWidth={2.5} /> 
+                     <span className="text-neutral-800">My Profile</span>
                   </div>
-                  <ChevronRight size={16} className="text-neutral-300" />
+                  <ChevronRight size={16} className="text-neutral-200" strokeWidth={3} />
                </Link>
-               <Link to="/vendor/roles" className="flex items-center justify-between p-4 border-b border-neutral-50 active:bg-neutral-50 transition-colors">
-                  <div className="flex items-center gap-3">
-                     <Briefcase size={18} className="text-neutral-500" /> Service Roles
+               <Link to="/vendor/roles" className="flex items-center justify-between p-5 border-b border-neutral-50 active:bg-neutral-50 transition-colors group">
+                  <div className="flex items-center gap-4">
+                     <Briefcase size={18} className="text-neutral-300 group-hover:text-slate-900 transition-colors" strokeWidth={2.5} /> 
+                     <span className="text-neutral-800">Service Roles</span>
                   </div>
-                  <ChevronRight size={16} className="text-neutral-300" />
+                  <ChevronRight size={16} className="text-neutral-200" strokeWidth={3} />
                </Link>
-               <Link to="/vendor/kyc" className="flex items-center justify-between p-4 active:bg-neutral-50 transition-colors">
-                  <div className="flex items-center gap-3">
-                     <FileText size={18} className="text-neutral-500" /> KYC Documents
+               <Link to="/vendor/kyc" className="flex items-center justify-between p-5 active:bg-neutral-50 transition-colors group">
+                  <div className="flex items-center gap-4">
+                     <FileText size={18} className="text-neutral-300 group-hover:text-slate-900 transition-colors" strokeWidth={2.5} /> 
+                     <span className="text-neutral-800">KYC Documents</span>
                   </div>
-                  <ChevronRight size={16} className="text-neutral-300" />
+                  <ChevronRight size={16} className="text-neutral-200" strokeWidth={3} />
                </Link>
             </div>
-         </div>
+         </section>
 
-         <div>
-            <h3 className="text-[10px] font-black uppercase text-neutral-400 tracking-widest pl-1 mb-2">App Settings</h3>
-            <div className="bg-white border text-sm font-bold border-neutral-100 rounded-2xl overflow-hidden shadow-sm">
-               <div className="flex items-center justify-between p-4 border-b border-neutral-50 active:bg-neutral-50 transition-colors">
-                  <div className="flex items-center gap-3">
-                     <Settings size={18} className="text-neutral-500" /> Preferences
+         <section>
+            <h3 className="text-[11px] font-black uppercase text-neutral-300 tracking-[0.25em] mb-5 pl-1">Configuration</h3>
+            <div className="bg-white border text-sm font-bold border-black/5 rounded-[2.5rem] overflow-hidden shadow-xl shadow-black/[0.01]">
+               <div className="flex items-center justify-between p-5 border-b border-neutral-50 active:bg-neutral-50 transition-colors group">
+                  <div className="flex items-center gap-4">
+                     <Settings size={18} className="text-neutral-300 group-hover:text-slate-900 transition-colors" strokeWidth={2.5} /> 
+                     <span className="text-neutral-800">Preferences</span>
                   </div>
-                  <ChevronRight size={16} className="text-neutral-300" />
+                  <ChevronRight size={16} className="text-neutral-200" strokeWidth={3} />
                </div>
                <button 
                 onClick={handleLogout}
-                className="w-full flex items-center justify-between p-4 text-red-600 active:bg-red-50 transition-colors"
+                className="w-full flex items-center justify-between p-5 text-slate-900 bg-slate-50 active:bg-slate-100 transition-colors group"
                >
-                  <div className="flex items-center gap-3">
-                     <LogOut size={18} /> Logout
+                  <div className="flex items-center gap-4">
+                     <LogOut size={18} className="text-slate-900" strokeWidth={3} /> 
+                     <span className="font-black uppercase tracking-widest text-[10px]">Logout Session</span>
                   </div>
                </button>
             </div>
-         </div>
+         </section>
       </div>
     </div>
   );

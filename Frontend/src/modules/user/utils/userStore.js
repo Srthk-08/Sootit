@@ -25,7 +25,7 @@ export const initUserState = (profile) => {
 
 export const logoutUser = () => {
   localStorage.removeItem('user_data');
-  window.location.href = '/user/login';
+  window.location.href = '/';
 };
 
 export const deductUserWallet = (amount) => {
