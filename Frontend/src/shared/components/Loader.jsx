@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import logo from "../../assets/logo.png";
 
 const Loader = () => {
   return (
@@ -22,7 +23,7 @@ const Loader = () => {
           }}
           className="h-16 w-16 bg-white border border-slate-100 dark:bg-neutral-900 overflow-hidden flex items-center justify-center shadow-lg"
         >
-          <img src="/src/assets/logo.png" alt="S" className="w-10 h-10 object-contain" />
+          <img src={logo} alt="S" className="w-10 h-10 object-contain" />
         </motion.div>
         <motion.h2
           initial={{ opacity: 0, y: 10 }}

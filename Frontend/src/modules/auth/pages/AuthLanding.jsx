@@ -6,6 +6,8 @@ import UserRegister from '../../user/pages/UserRegister';
 import VendorLogin from '../../vendor/pages/VendorLogin';
 import VendorRegister from '../../vendor/pages/VendorRegister';
 
+import logo from "../../../assets/logo.png";
+
 const AuthLanding = () => {
   const [activeTab, setActiveTab] = useState('user'); // 'user' or 'vendor'
   const [formType, setFormType] = useState('login'); // 'login' or 'register'
@@ -25,7 +27,7 @@ const AuthLanding = () => {
           className="flex flex-col items-center mb-2"
         >
           <div className="h-24 w-24 overflow-hidden flex items-center justify-center">
-            <img src="/src/assets/logo.png" alt="Sootit Logo" className="w-full h-full object-contain" />
+            <img src={logo} alt="Sootit Logo" className="w-full h-full object-contain" />
           </div>
         </motion.div>
         <p className="text-slate-400 font-bold text-[10px] uppercase tracking-widest leading-snug text-center">

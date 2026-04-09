@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Users, Briefcase, Activity, ShieldCheck, TrendingUp, AlertTriangle } from "lucide-react";
+import logo from "../../../assets/logo.png";
 
 /**
  * Super Admin Panel (Ultra Compact Desktop/Mobile Hybrid)
@@ -11,7 +12,7 @@ const AdminDashboard = () => {
       <section className="px-5 py-8 bg-neutral-900 text-white rounded-b-[2.5rem] shadow-2xl">
         <div className="flex items-center gap-4 mb-8">
           <div className="h-12 w-12 bg-white rounded-2xl overflow-hidden flex items-center justify-center border border-white/10 shadow-xl">
-            <img src="/src/assets/logo.png" alt="Logo" className="w-full h-full object-cover p-2" />
+            <img src={logo} alt="Logo" className="w-full h-full object-cover p-2" />
           </div>
           <div className="flex flex-col gap-1">
             <span className="text-[10px] font-black uppercase text-white/30 tracking-[0.2em]">System Status</span>

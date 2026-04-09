@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getUserData } from "../../modules/user/utils/userStore";
 import { getVendorData } from "../../modules/vendor/utils/vendorStore";
+import logo from "../../assets/logo.png";
 
 const AppHeader = () => {
   const location = useLocation();
@@ -38,7 +39,7 @@ const AppHeader = () => {
     >
       <div className="flex items-center gap-3 group">
         <div className="h-14 w-14 overflow-hidden flex items-center justify-center transition-transform active:scale-95">
-          <img src="/src/assets/logo.png" alt="Sootit" className="w-full h-full object-contain" />
+          <img src={logo} alt="Sootit" className="w-full h-full object-contain" />
         </div>
         <div className="flex flex-col">
           <span className="text-[10px] font-black text-neutral-400 leading-none mb-1 uppercase tracking-widest">{isAdmin ? 'System' : isVendor ? 'Partner' : 'Service'}</span>

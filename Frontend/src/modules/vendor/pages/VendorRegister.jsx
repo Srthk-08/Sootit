@@ -3,6 +3,8 @@ import { ArrowLeft, User, Navigation, Wrench, Shield, Briefcase, FileText, Truck
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
+import logo from "../../../assets/logo.png";
+
 const VendorRegister = ({ isEmbedded = false, onSwitchToLogin }) => {
   const navigate = useNavigate();
   const [role, setRole] = useState('driver');
@@ -51,7 +53,7 @@ const VendorRegister = ({ isEmbedded = false, onSwitchToLogin }) => {
           {!isEmbedded && (
             <div className="flex justify-center mb-8">
               <div className="h-20 w-20 flex items-center justify-center overflow-hidden">
-                 <img src="/src/assets/logo.png" alt="Sootit" className="w-full h-full object-contain" />
+                 <img src={logo} alt="Sootit" className="w-full h-full object-contain" />
               </div>
             </div>
           )}

@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { ArrowLeft, User, Phone, ShieldCheck, Mail, ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
+import logo from "../../../assets/logo.png";
+
 const UserRegister = ({ isEmbedded = false, onSwitchToLogin }) => {
   const navigate = useNavigate();
 
@@ -32,7 +34,7 @@ const UserRegister = ({ isEmbedded = false, onSwitchToLogin }) => {
           {!isEmbedded && (
             <div className="flex flex-col items-center mb-10">
               <div className="h-24 w-24 overflow-hidden mb-2">
-                <img src="/src/assets/logo.png" alt="Sootit" className="w-full h-full object-contain" />
+                <img src={logo} alt="Sootit" className="w-full h-full object-contain" />
               </div>
             </div>
           )}

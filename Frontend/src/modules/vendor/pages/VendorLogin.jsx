@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { initVendorState } from "../utils/vendorStore";
 import { useState } from "react";
 
+import logo from "../../../assets/logo.png";
+
 const VendorLogin = ({ isEmbedded = false }) => {
   const navigate = useNavigate();
   const [step, setStep] = useState(1); // 1: Phone, 2: OTP
@@ -52,7 +54,7 @@ const VendorLogin = ({ isEmbedded = false }) => {
       <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-sm mx-auto">
         {!isEmbedded && (
           <div className="h-28 w-28 flex items-center justify-center mx-auto mb-6 overflow-hidden">
-            <img src="/src/assets/logo.png" alt="Sootit" className="w-full h-full object-contain" />
+            <img src={logo} alt="Sootit" className="w-full h-full object-contain" />
           </div>
         )}
         <h1 className={`${isEmbedded ? 'text-3xl' : 'text-5xl'} font-black tracking-tighter leading-tight mb-2 uppercase`}>
