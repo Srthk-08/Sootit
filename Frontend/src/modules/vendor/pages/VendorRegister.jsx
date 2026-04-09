@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { ArrowLeft, User, Navigation, Wrench, Shield, Briefcase, FileText, Truck } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowLeft, User, Navigation, Wrench, Shield, Briefcase, FileText, Truck, Phone, ArrowRight } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -8,90 +8,138 @@ const VendorRegister = ({ isEmbedded = false, onSwitchToLogin }) => {
   const [role, setRole] = useState('driver');
 
   const roles = [
-    { id: 'driver', label: 'Driver', icon: Navigation },
-    { id: 'mechanic', label: 'Mechanic', icon: Wrench },
-    { id: 'towing', label: 'Towing', icon: Truck },
-    { id: 'rto', label: 'RTO Agent', icon: FileText },
-    { id: 'legal', label: 'Legal Advisor', icon: Briefcase },
+    { id: 'driver', label: 'Driver', icon: Navigation, desc: 'Professional chauffeur' },
+    { id: 'mechanic', label: 'Mechanic', icon: Wrench, desc: 'Vehicle repair expert' },
+    { id: 'towing', label: 'Towing', icon: Truck, desc: '24/7 recovery service' },
+    { id: 'rto', label: 'RTO Agent', icon: FileText, desc: 'Paperwork assistant' },
+    { id: 'legal', label: 'Legal Advisor', icon: Briefcase, desc: 'Vehicle law expert' },
   ];
 
   const handleRegister = (e) => {
     e.preventDefault();
-    // In actual app, this would be an API call. For mock, we initialize state.
-    localStorage.setItem('temp_vendor_role', role); // Store role for login page to pick up
+    localStorage.setItem('temp_vendor_role', role);
     isEmbedded ? onSwitchToLogin() : navigate('/vendor/login');
   };
 
   const containerClasses = isEmbedded 
-    ? "px-6 pt-4 pb-8 flex-1 flex flex-col font-inter" 
-    : "h-screen bg-white overflow-hidden flex flex-col font-inter";
+    ? "px-6 pt-4 pb-8 flex-1 flex flex-col font-inter bg-white" 
+    : "min-h-screen bg-slate-50 flex flex-col font-inter";
 
   return (
     <div className={containerClasses}>
-      {!isEmbedded && (
-        <div className="px-6 py-8 border-b border-neutral-50 flex items-center gap-4">
-          <Link to="/vendor/login" className="inline-block p-1 active:scale-90 transition-transform">
-            <ArrowLeft size={28} className="text-neutral-900" strokeWidth={3} />
-          </Link>
-          <span className="text-[11px] font-black uppercase tracking-[0.2em] text-neutral-400">Application</span>
+      {/* Dynamic Header */}
+      <div className="px-6 py-6 flex items-center justify-between sticky top-0 bg-inherit z-30">
+        <button 
+          onClick={() => isEmbedded ? onSwitchToLogin() : navigate('/')} 
+          className="h-12 w-12 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-black/[0.03] active:scale-90 transition-transform"
+        >
+          <ArrowLeft size={20} className="text-slate-900" strokeWidth={2.5} />
+        </button>
+        <div className="flex flex-col items-end">
+            <span className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-300">Partner Application</span>
+            <span className="text-[10px] font-bold text-slate-900">Step 01 of 02</span>
         </div>
-      )}
+      </div>
 
-      <div className={`px-6 flex-1 overflow-y-auto hide-scrollbar ${!isEmbedded ? 'py-8' : ''}`}>
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-sm mx-auto pb-12">
-          <h1 className={`${isEmbedded ? 'text-3xl' : 'text-5xl'} font-black text-neutral-900 tracking-tighter leading-tight mb-2 italic`}>Join<br/>Partner.</h1>
-          <p className={`${isEmbedded ? 'text-xs' : 'text-lg'} font-medium text-neutral-400 mb-8 tracking-tight opacity-90 leading-tight`}>Select your professional role and start earning.</p>
-
-          {/* Role Selector */}
-          <div className="grid grid-cols-3 gap-3 mb-8">
-            {roles.map((r) => (
-              <div 
-                key={r.id} 
-                onClick={() => setRole(r.id)}
-                className={`p-3 rounded-2xl border-2 cursor-pointer transition-all flex flex-col items-center gap-2 ${role === r.id ? 'border-slate-900 bg-slate-50 text-slate-900 shadow-md shadow-slate-900/5' : 'border-neutral-50 bg-neutral-50/30 text-neutral-300'}`}
-              >
-                <r.icon size={18} strokeWidth={role === r.id ? 2.5 : 2} className={role === r.id ? 'text-slate-900' : 'text-neutral-300'} />
-                <span className="text-[9px] font-black uppercase tracking-widest leading-none text-center">{r.label}</span>
+      <div className="flex-1 px-6 pb-12 overflow-y-auto hide-scrollbar">
+        <motion.div 
+            initial={{ opacity: 0, scale: 0.98 }} 
+            animate={{ opacity: 1, scale: 1 }} 
+            className="w-full max-w-sm mx-auto"
+        >
+          {/* Logo Section */}
+          {!isEmbedded && (
+            <div className="flex justify-center mb-8">
+              <div className="h-20 w-20 flex items-center justify-center overflow-hidden">
+                 <img src="/src/assets/logo.png" alt="Sootit" className="w-full h-full object-contain" />
               </div>
-            ))}
+            </div>
+          )}
+
+          <div className="mb-8 px-2">
+            <h1 className="text-3xl font-black text-slate-900 tracking-tighter italic leading-none mb-3">Join as Partner.</h1>
+            <p className="text-sm font-bold text-slate-400">Select your expertise and build your business with Sootit.</p>
           </div>
 
-          <form onSubmit={handleRegister} className="space-y-4">
-            <div className="space-y-2">
-               <label className="text-[10px] font-black uppercase text-neutral-400 tracking-[0.15em] pl-1 block">Full Name</label>
-               <input type="text" placeholder="John Doe" className="w-full bg-neutral-50/50 border-2 border-neutral-100 rounded-[1.2rem] px-5 py-4 text-base font-bold transition-all focus:border-slate-900 focus:bg-white focus:outline-none placeholder:text-neutral-300" />
+          <form onSubmit={handleRegister} className="space-y-8">
+            {/* Roles Micro-Grid */}
+            <div className="space-y-4">
+                <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 pl-2">What is your role?</span>
+                <div className="grid grid-cols-1 gap-3">
+                {roles.map((r) => (
+                    <motion.div 
+                        key={r.id} 
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => setRole(r.id)}
+                        className={`p-5 rounded-[2rem] border-2 cursor-pointer transition-all flex items-center gap-5 ${role === r.id ? 'border-slate-900 bg-slate-900 text-white shadow-2xl shadow-slate-900/20' : 'border-white bg-white text-slate-400 shadow-sm shadow-black/[0.02]'}`}
+                    >
+                        <div className={`h-12 w-12 rounded-2xl flex items-center justify-center transition-colors ${role === r.id ? 'bg-white/10 text-white' : 'bg-slate-50 text-slate-300'}`}>
+                            <r.icon size={22} strokeWidth={2.5} />
+                        </div>
+                        <div className="flex flex-col">
+                            <span className="text-sm font-black uppercase tracking-tight">{r.label}</span>
+                            <span className={`text-[10px] font-bold ${role === r.id ? 'text-white/60' : 'text-slate-300'}`}>{r.desc}</span>
+                        </div>
+                    </motion.div>
+                ))}
+                </div>
             </div>
-            <div className="space-y-2">
-               <label className="text-[10px] font-black uppercase text-neutral-400 tracking-[0.15em] pl-1 block">Mobile Number</label>
-               <div className="flex bg-neutral-50/50 border-2 border-neutral-100 rounded-[1.2rem] px-5 py-4 focus-within:border-slate-900 focus-within:bg-white transition-all shadow-sm">
-                 <span className="text-base font-black text-neutral-400 mr-3">+91</span>
-                 <input type="tel" maxLength={10} placeholder="00000 00000" className="bg-transparent text-base font-bold w-full focus:outline-none placeholder:text-neutral-300" />
-               </div>
+
+            {/* Direct Information */}
+            <div className="space-y-4 pt-4">
+                <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 pl-2">Personal Details</span>
+                <div className="space-y-3">
+                    <div className="bg-white border border-black/[0.03] rounded-3xl p-5 flex items-center gap-4 shadow-sm">
+                        <User size={18} className="text-slate-300" strokeWidth={2.5} />
+                        <input type="text" placeholder="Full Name" className="bg-transparent text-sm font-bold text-slate-900 w-full focus:outline-none" />
+                    </div>
+                    <div className="bg-white border border-black/[0.03] rounded-3xl p-5 flex items-center gap-4 shadow-sm">
+                        <Phone size={18} className="text-slate-300" strokeWidth={2.5} />
+                        <div className="flex items-center">
+                            <span className="text-sm font-black text-slate-900 mr-2">+91</span>
+                            <div className="h-4 w-[1px] bg-slate-100 mr-3" />
+                            <input type="tel" maxLength={10} placeholder="Mobile Number" className="bg-transparent text-sm font-bold text-slate-900 w-full focus:outline-none" />
+                        </div>
+                    </div>
+
+                    <AnimatePresence>
+                        {role === 'driver' && (
+                        <motion.div 
+                            initial={{ opacity: 0, height: 0 }} 
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="bg-slate-50 border-2 border-dashed border-slate-200 rounded-3xl p-5 flex items-center gap-4"
+                        >
+                            <FileText size={18} className="text-slate-300" strokeWidth={2.5} />
+                            <input type="text" placeholder="Driving License Number" className="bg-transparent text-sm font-bold text-slate-800 w-full focus:outline-none placeholder:text-slate-300 uppercase" />
+                        </motion.div>
+                        )}
+                    </AnimatePresence>
+                </div>
             </div>
             
-            {role === 'driver' && (
-               <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="space-y-2">
-                 <label className="text-[10px] font-black uppercase text-neutral-400 tracking-[0.15em] pl-1 block">Driving License</label>
-                 <input type="text" placeholder="MH12 XXXXXXXX" className="w-full bg-neutral-50/50 border-2 border-neutral-100 rounded-[1.2rem] px-5 py-4 text-sm font-bold border-dashed focus:border-slate-900 focus:bg-white focus:outline-none placeholder:text-neutral-300" />
-               </motion.div>
-            )}
-            
-            <button type="submit" className="w-full bg-slate-900 text-white rounded-[1.2rem] py-4 font-black uppercase tracking-widest text-[12px] flex items-center justify-center gap-2 active:scale-95 transition-all mt-6 shadow-xl shadow-slate-900/10">
-              SUBMIT APPLICATION <Shield size={16} strokeWidth={3} />
+            <button 
+                type="submit" 
+                className="w-full bg-slate-900 text-white h-16 rounded-[1.8rem] py-4 font-black uppercase tracking-[0.2em] text-[11px] flex items-center justify-between px-8 active:scale-95 transition-all shadow-2xl shadow-slate-900/30 group"
+            >
+              <span>Next Stage</span>
+              <div className="h-10 w-10 bg-white/10 rounded-xl flex items-center justify-center group-hover:bg-white group-hover:text-slate-900 transition-colors">
+                <ArrowRight size={20} className="text-white group-hover:text-slate-900" strokeWidth={3} />
+              </div>
             </button>
           </form>
 
-          <div className="text-center mt-8">
-            <p className="text-[11px] font-bold text-neutral-400">
+          <footer className="mt-12 text-center pb-10">
+            <p className="text-[11px] font-bold text-slate-400 uppercase tracking-[0.1em]">
                Already a partner? 
                <button 
                 onClick={() => isEmbedded ? onSwitchToLogin() : navigate('/vendor/login')} 
-                className="text-slate-900 border-b-2 border-slate-200 pb-0.5 ml-1"
+                className="text-slate-900 border-b-2 border-slate-100 pb-0.5 ml-2 transition-all hover:border-slate-900"
               >
-                Login
+                Login Account
               </button>
             </p>
-          </div>
+          </footer>
         </motion.div>
       </div>
     </div>

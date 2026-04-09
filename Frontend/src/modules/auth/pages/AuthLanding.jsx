@@ -22,14 +22,13 @@ const AuthLanding = () => {
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="flex items-center gap-3 mb-1"
+          className="flex flex-col items-center mb-2"
         >
-          <div className="h-10 w-10 bg-slate-900 rounded-xl flex items-center justify-center shadow-lg shadow-slate-900/20">
-            <span className="text-white font-black text-xl">D</span>
+          <div className="h-24 w-24 overflow-hidden flex items-center justify-center">
+            <img src="/src/assets/logo.png" alt="Sootit Logo" className="w-full h-full object-contain" />
           </div>
-          <h1 className="text-2xl font-black tracking-tighter text-slate-900 uppercase italic">DriverFinder</h1>
         </motion.div>
-        <p className="text-slate-400 font-bold text-[11px] uppercase tracking-widest leading-snug">
+        <p className="text-slate-400 font-bold text-[10px] uppercase tracking-widest leading-snug text-center">
           Premium Vehicle Services Ecosystem
         </p>
       </div>

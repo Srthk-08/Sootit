@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Search, MapPin, Navigation, Clock, Star, ArrowRight, Filter, TrendingUp, Shield, Wrench, FileText, Truck, Zap } from "lucide-react";
+import { Search, MapPin, Navigation, Clock, Star, ArrowRight, Filter, TrendingUp, Shield, Wrench, FileText, Truck, Zap, Briefcase } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 

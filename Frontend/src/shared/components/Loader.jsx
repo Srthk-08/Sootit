@@ -20,15 +20,17 @@ const Loader = () => {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="h-16 w-16 bg-slate-900 dark:bg-slate-700"
-        />
+          className="h-16 w-16 bg-white border border-slate-100 dark:bg-neutral-900 overflow-hidden flex items-center justify-center shadow-lg"
+        >
+          <img src="/src/assets/logo.png" alt="S" className="w-10 h-10 object-contain" />
+        </motion.div>
         <motion.h2
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
           className="mt-4 text-xl font-bold text-neutral-800 dark:text-white tracking-widest uppercase"
         >
-          DriverFinder
+          Sootit
         </motion.h2>
         <div className="mt-2 h-1 w-32 overflow-hidden rounded-full bg-neutral-100 dark:bg-neutral-800">
           <motion.div

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import heroBanner from "../../../assets/images/hero_banner.png";
 
 /**
- * Micro-App Hero for DriverFinder
+ * Micro-App Hero for Sootit
  * High density info architecture
  */
 const AppHero = ({ user }) => {

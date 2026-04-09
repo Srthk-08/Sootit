@@ -37,8 +37,8 @@ const AppHeader = () => {
       className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-black/[0.03] py-2 px-3 flex items-center justify-between h-16 font-inter"
     >
       <div className="flex items-center gap-3 group">
-        <div className={`h-10 w-10 rounded-2xl flex items-center justify-center font-black text-white text-xs shadow-lg ${isAdmin ? 'bg-neutral-900 shadow-black/20' : 'bg-slate-900 shadow-slate-900/20'}`}>
-          {isVendor ? 'V' : isAdmin ? 'A' : 'S'}
+        <div className="h-14 w-14 overflow-hidden flex items-center justify-center transition-transform active:scale-95">
+          <img src="/src/assets/logo.png" alt="Sootit" className="w-full h-full object-contain" />
         </div>
         <div className="flex flex-col">
           <span className="text-[10px] font-black text-neutral-400 leading-none mb-1 uppercase tracking-widest">{isAdmin ? 'System' : isVendor ? 'Partner' : 'Service'}</span>

@@ -49,8 +49,8 @@ const UserLogin = ({ isEmbedded = false }) => {
     <div className={containerClasses}>
       <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-sm mx-auto">
         {!isEmbedded && (
-          <div className="h-20 w-20 bg-slate-900 rounded-[2rem] flex items-center justify-center mb-8 shadow-2xl shadow-black/20 text-white font-black text-3xl">
-            D
+          <div className="h-28 w-28 flex items-center justify-center mx-auto mb-6 overflow-hidden">
+            <img src="/src/assets/logo.png" alt="Sootit" className="w-full h-full object-contain" />
           </div>
         )}
         <h1 className={`${isEmbedded ? 'text-3xl' : 'text-5xl'} font-black tracking-tighter leading-tight mb-2`}>
@@ -110,7 +110,7 @@ const UserLogin = ({ isEmbedded = false }) => {
 
         <div className="text-center mt-10">
           <p className="text-[11px] font-bold text-neutral-400">
-            New to DriverFinder? <Link to="/user/register" className="text-slate-900 border-b-2 border-slate-200 pb-0.5 ml-1">Create Account</Link>
+            New to Sootit? <Link to="/user/register" className="text-slate-900 border-b-2 border-slate-200 pb-0.5 ml-1">Create Account</Link>
           </p>
         </div>
       </motion.div>
