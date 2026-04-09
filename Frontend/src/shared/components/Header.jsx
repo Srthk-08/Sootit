@@ -38,7 +38,7 @@ const AppHeader = () => {
     >
       <div className="flex items-center gap-3 group">
         <div className={`h-10 w-10 rounded-2xl flex items-center justify-center font-black text-white text-xs shadow-lg ${isAdmin ? 'bg-neutral-900 shadow-black/20' : 'bg-slate-900 shadow-slate-900/20'}`}>
-          {isVendor ? 'V' : isAdmin ? 'A' : 'D'}
+          {isVendor ? 'V' : isAdmin ? 'A' : 'S'}
         </div>
         <div className="flex flex-col">
           <span className="text-[10px] font-black text-neutral-400 leading-none mb-1 uppercase tracking-widest">{isAdmin ? 'System' : isVendor ? 'Partner' : 'Service'}</span>
